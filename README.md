@@ -1,5 +1,20 @@
 # Personal Book List with Google Books Integration
 
+## Assumptions & Design Decisions
+1. **Explicit Mapping:** Manual mapping was used in the `BookService` layer instead of MapStruct
+2. **Architecture:** A strict Controller -> Service -> Repository layered architecture is maintained. No business logic exists in the Controller.
+3. **Testing:** `MockMvc` was utilized for the Integration Tests to ensure a reliable testing environment without physical port binding conflicts.
+
+## Setup & Configuration
+Before running the application, you must provide a valid Google Books API key.
+1. Open `src/main/resources/application.properties`
+2. Add your API key:
+   `google.books.api-key=YOUR_ACTUAL_API_KEY_HERE`
+
+## Build & Run Steps
+- **Build & Test:** `mvn clean install`
+- **Run Application:** `mvn spring-boot:run`
+
 ## Context
 You have a Spring Boot project with a REST endpoint `/books` that returns
 all books from an in-memory H2 database. The code includes a `Book` entity,

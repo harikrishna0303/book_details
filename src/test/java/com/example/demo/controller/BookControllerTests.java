@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import com.example.demo.db.Book;
 import com.example.demo.db.BookRepository;
@@ -11,7 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
+import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,5 +43,20 @@ class BookControllerTests {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$[0].title").value("Spring in Action"))
             .andExpect(jsonPath("$[1].title").value("Effective Java"));
+    }
+    @Test
+    void testSaveBookFromGoogle() throws Exception {
+
+        String googleId = "zyTCAlFPjgYC"; // valid Google Books ID
+
+        mockMvc.perform(post("/books/{googleId}", googleId))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.id").value(googleId))
+                .andExpect(jsonPath("$.title").exists())
+                .andExpect(jsonPath("$.author").exists());
+
+        Optional<Book> savedBook = bookRepository.findById(googleId);
+
+        assertTrue(savedBook.isPresent());
     }
 }
