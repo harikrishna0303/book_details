@@ -1,5 +1,6 @@
-package com.example.demo.db;
+package com.example.demo.repository;
 
+import com.example.demo.entity.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

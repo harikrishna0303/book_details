@@ -1,9 +1,9 @@
-package com.example.demo;
+package com.example.demo.Controller;
 
-import com.example.demo.db.Book;
-import com.example.demo.db.BookRepository;
-import com.example.demo.google.GoogleBook;
-import com.example.demo.google.GoogleBookService;
+import com.example.demo.entity.Book;
+import com.example.demo.repository.BookRepository;
+import com.example.demo.dto.GoogleBook;
+import com.example.demo.service.GoogleBookService;
 import com.example.demo.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

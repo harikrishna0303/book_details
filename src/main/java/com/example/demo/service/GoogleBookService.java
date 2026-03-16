@@ -1,6 +1,7 @@
-package com.example.demo.google;
+package com.example.demo.service;
 
 import com.example.demo.exception.GoogleApiException;
+import com.example.demo.dto.GoogleBook;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,11 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.db.Book;
-import com.example.demo.db.BookRepository;
-import com.example.demo.google.GoogleBook;
-import com.example.demo.google.GoogleBookService;
+import com.example.demo.entity.Book;
+import com.example.demo.repository.BookRepository;
+import com.example.demo.dto.GoogleBook;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

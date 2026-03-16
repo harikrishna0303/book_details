@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.db.Book;
-import com.example.demo.db.BookRepository;
-import com.example.demo.google.GoogleBook;
-import com.example.demo.google.GoogleBookService;
+import com.example.demo.entity.Book;
+import com.example.demo.repository.BookRepository;
+import com.example.demo.dto.GoogleBook;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
